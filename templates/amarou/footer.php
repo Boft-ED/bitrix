@@ -1084,8 +1084,31 @@
     =========================  -->
 <section class="contact-layout3 py-0">
   <div id="map" style="height: 620px;"></div>
-  <script src="<?= SITE_TEMPLATE_PATH ?>/js/google-map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <? $APPLICATION->IncludeComponent(
+    "bitrix:map.yandex.view",
+    ".default",
+    array(
+      "API_KEY" => "",
+      "CONTROLS" => array(
+        0 => "ZOOM",
+        1 => "MINIMAP",
+        2 => "TYPECONTROL",
+        3 => "SCALELINE",
+      ),
+      "INIT_MAP_TYPE" => "MAP",
+      "MAP_DATA" => "a:3:{s:10:\"yandex_lat\";s:7:\"55.7383\";s:10:\"yandex_lon\";s:7:\"37.5946\";s:12:\"yandex_scale\";i:10;}",
+      "MAP_HEIGHT" => "620",
+      "MAP_ID" => "",
+      "MAP_WIDTH" => "100%",
+      "OPTIONS" => array(
+        0 => "ENABLE_SCROLL_ZOOM",
+        1 => "ENABLE_DBLCLICK_ZOOM",
+        2 => "ENABLE_DRAGGING",
+      ),
+      "COMPONENT_TEMPLATE" => ".default"
+    ),
+    false
+  ); ?>
   <!-- CLICK HERE (https://developers.google.com/maps/documentation/embed/get-api-key) TO  LERAN MORE ABOUT GOOGLE MAPS API KEY -->
   <div class="container">
     <div class="row">
@@ -1141,8 +1164,18 @@
         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-5 footer-widget footer-widget-about">
           <h6 class="footer-widget-title">About Amarou</h6>
           <div class="footer-widget-content">
-            <p class="mb-20">A leading developer of A-grade commercial, industrial and residential projects in USA.
-              Since its foundation the company has doubled its turnover year on year with its staff.</p>
+            <p class="mb-20">
+              <? $APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                "",
+                array(
+                  "AREA_FILE_SHOW" => "file",
+                  "AREA_FILE_SUFFIX" => "inc",
+                  "EDIT_TEMPLATE" => "",
+                  "PATH" => SITE_TEMPLATE_PATH . "/inc/descr.php"
+                )
+              ); ?>
+            </p>
             <a href="request-quote.html" class="btn btn__primary btn__link ">
               <i class="icon-arrow-right"></i><span>Request A Quote</span>
             </a>
@@ -1182,10 +1215,17 @@
           <h6 class="footer-widget-title">Quick Contact</h6>
           <div class="footer-widget-content">
             <p class="mb-20">If you have any questions or need help, feel free to contact with our team.</p>
-            <a class="contact-number contact-number-white d-flex align-items-center mb-20" href="tel:5565454117">
-              <i class="icon-phone"></i><span>(002) 55 654 541 17</span>
-            </a><!-- /.contact__numbr -->
-            <p class="mb-30">
+            <? $APPLICATION->IncludeComponent(
+              "bitrix:main.include",
+              "",
+              array(
+                "AREA_FILE_SHOW" => "file",
+                "AREA_FILE_SUFFIX" => "inc",
+                "EDIT_TEMPLATE" => "",
+                "PATH" => SITE_TEMPLATE_PATH . "/inc/phone.php"
+              )
+            ); ?>
+            <p class="mb-30 mt-30">
               <? $APPLICATION->IncludeComponent(
                 "bitrix:main.include",
                 "",
