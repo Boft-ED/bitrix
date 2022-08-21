@@ -37,13 +37,42 @@ IncludeTemplateLangFile(__FILE__);
                 <ul class="contact-list list-unstyled mb-0 d-flex flex-wrap">
                   <li>
                     <i class="icon-phone"></i><span>Phone:</span>
-                    <a href="tel:556554117">+55 654 541 17</a>
+                    <? $APPLICATION->IncludeComponent(
+                      "bitrix:main.include",
+                      "",
+                      array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => SITE_TEMPLATE_PATH . "/inc/phone.php"
+                      )
+                    ); ?>
                   </li>
                   <li>
                     <i class="icon-envelope"></i><span>Email:</span>
-                    <a href="mailto:Amarou@7oroof.com">Amarou@7oroof.com</a>
+                    <? $APPLICATION->IncludeComponent(
+                      "bitrix:main.include",
+                      "",
+                      array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => SITE_TEMPLATE_PATH . "/inc/email.php"
+                      )
+                    ); ?>
                   </li>
-                  <li><i class="icon-clock"></i><span>Hours: Mon-Fri: 8am – 7pm</span></li>
+                  <li><i class="icon-clock"></i><span>Hours:
+                      <? $APPLICATION->IncludeComponent(
+                        "bitrix:main.include",
+                        "",
+                        array(
+                          "AREA_FILE_SHOW" => "file",
+                          "AREA_FILE_SUFFIX" => "inc",
+                          "EDIT_TEMPLATE" => "",
+                          "PATH" => SITE_TEMPLATE_PATH . "/inc/worktime.php"
+                        )
+                      ); ?>
+                    </span></li>
                 </ul>
               </div>
             </div><!-- /.col-lg-7 -->
