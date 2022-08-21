@@ -1,0 +1,1 @@
+<img alt="logo" src="/local/templates/amarou/images/logo/logo-dark.png" class="logo-dark">
